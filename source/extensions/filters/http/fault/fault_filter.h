@@ -17,6 +17,8 @@
 #include "common/common/token_bucket_impl.h"
 #include "common/http/header_utility.h"
 
+#include "extensions/filters/common/fault/fault_config.h"
+
 namespace Envoy {
 namespace Extensions {
 namespace HttpFilters {
@@ -200,7 +202,7 @@ private:
     const std::string DelayDurationKey = "fault.http.delay.fixed_duration_ms";
     const std::string AbortHttpStatusKey = "fault.http.abort.http_status";
     const std::string MaxActiveFaultsKey = "fault.http.max_active_faults";
-    const std::string ResponseRateLimitKey = "fault.http.rate_limit.response_percent";
+    const std::string ResponseRateLimitPercentKey = "fault.http.rate_limit.response_percent";
   };
 
   using RuntimeKeys = ConstSingleton<RuntimeKeyValues>;

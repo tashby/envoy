@@ -65,7 +65,7 @@ TEST_P(FaultIntegrationTestAllProtocols, ResponseRateLimitNoTrailers) {
   simTime().sleep(std::chrono::milliseconds(63));
   decoder->waitForBodyData(1088);
 
-  // Advance time and wait for a ticks worth of data and end stream.
+  // Advance time and wait for a tick worth of data and end stream.
   simTime().sleep(std::chrono::milliseconds(63));
   decoder->waitForBodyData(1152);
   decoder->waitForEndStream();
@@ -90,11 +90,11 @@ TEST_P(FaultIntegrationTestHttp2, ResponseRateLimitTrailersBodyFlushed) {
   upstream_request_->encodeData(data, false);
   decoder->waitForBodyData(1024);
 
-  // Advance time and wait for a ticks worth of data.
+  // Advance time and wait for a tick worth of data.
   simTime().sleep(std::chrono::milliseconds(63));
   decoder->waitForBodyData(1088);
 
-  // Advance time and wait for a ticks worth of data.
+  // Advance time and wait for a tick worth of data.
   simTime().sleep(std::chrono::milliseconds(63));
   decoder->waitForBodyData(1152);
 
@@ -119,11 +119,11 @@ TEST_P(FaultIntegrationTestHttp2, ResponseRateLimitTrailersBodyNotFlushed) {
   upstream_request_->encodeTrailers(trailers);
   decoder->waitForBodyData(1024);
 
-  // Advance time and wait for a ticks worth of data.
+  // Advance time and wait for a tick worth of data.
   simTime().sleep(std::chrono::milliseconds(63));
   decoder->waitForBodyData(1088);
 
-  // Advance time and wait for a ticks worth of data, trailers, and end stream.
+  // Advance time and wait for a tick worth of data, trailers, and end stream.
   simTime().sleep(std::chrono::milliseconds(63));
   decoder->waitForBodyData(1152);
   decoder->waitForEndStream();

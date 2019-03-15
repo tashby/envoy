@@ -149,7 +149,7 @@ void FaultFilter::maybeSetupResponseRateLimit() {
 
   // TODO(mattklein123): Allow runtime override via downstream cluster similar to the other keys.
   if (!config_->runtime().snapshot().featureEnabled(
-          RuntimeKeys::get().ResponseRateLimitKey,
+          RuntimeKeys::get().ResponseRateLimitPercentKey,
           fault_settings_->responseRateLimit().value().percentage_)) {
     return;
   }

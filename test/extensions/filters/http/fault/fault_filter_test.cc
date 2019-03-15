@@ -375,7 +375,6 @@ TEST_F(FaultFilterTest, Overflow) {
 
 TEST_F(FaultFilterTest, FixedDelayDeprecatedPercentAndNonZeroDuration) {
   envoy::config::filter::http::fault::v2::HTTPFault fault;
-  fault.mutable_delay()->set_type(envoy::config::filter::fault::v2::FaultDelay::FIXED);
   fault.mutable_delay()->mutable_percentage()->set_numerator(50);
   fault.mutable_delay()->mutable_percentage()->set_denominator(
       envoy::type::FractionalPercent::HUNDRED);
